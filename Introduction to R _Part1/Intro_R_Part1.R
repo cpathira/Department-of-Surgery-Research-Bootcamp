@@ -116,7 +116,7 @@ typeof(x)
 # If your search includes more than one word, use quotes:
 
 # Search for a help topic for round() function:
-?hist
+?sum
 ?round
 round(5.679)
 round(5.679, digits=1)
@@ -345,12 +345,8 @@ data()
 ### option 1: 
 #click Session menu>Set Working Directory>Choose Directory.
 #Then you just need to specify the file name in your working directory
-dat<-read.csv("NE_HealthData.csv", header=TRUE, sep = ",")
-# depending on the types of separation of columns in the data set, you can specify sep= ""
-# If it is tab-delimited text file then you can specify sep= "\t"
-# If it is separated using space then you can specify sep= ""
-# If it is separated using comma then you can specify sep= ","
-#FOR MORE INFORMATION GO TO THE BBlearn: Class 2 > Review (Reading data sets)> reading_example.html  
+dat<-read.csv("NE_HealthData.csv")
+
 
 
 
@@ -360,7 +356,7 @@ dat<-read.csv("NE_HealthData.csv", header=TRUE, sep = ",")
 
 #This is my current working directory path. Your path is different. 
 setwd("C:/Users/chathu/Desktop/R Ladies/Surgery Research Bootcamp 2021/Introduction to R_Part1") # change it to your path 
-dat<-read.csv("NE_HealthData.csv", header=TRUE)
+dat<-read.csv("NE_HealthData.csv")
 
 
 ### option 2: 
@@ -375,7 +371,12 @@ dat<-read.csv("C:\\Users\\chathu\\Desktop\\R Ladies\\Surgery Research Bootcamp 2
 
 #character variables are converted to factors! (For R version < 4)
 #Therefore, stringsAsFactors = FALSE is necessary for R version < 4
-dat<-read.table("NE_HealthData.csv", header=TRUE, sep=",", stringsAsFactors = FALSE) # read.table can be used to read txt files. 
+dat<-read.table("NE_HealthData.csv", header=TRUE, sep=",", stringsAsFactors = FALSE) # read.table can be used to read txt files.
+# depending on the types of separation of columns in the data set, you can specify sep= ""
+# If it is tab-delimited text file then you can specify sep= "\t"
+# If it is separated using space then you can specify sep= ""
+# If it is separated using comma then you can specify sep= ","
+
 str(dat)
 head(dat)
 dim(dat)
