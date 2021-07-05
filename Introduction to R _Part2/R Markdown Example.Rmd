@@ -1,0 +1,77 @@
+---
+title: "Surgery Research Bootcamp"
+author: "Chathurangi Pathiravasan"
+date: "July 05, 2021"
+output:
+  html_document:
+    code_folding: show
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+```
+
+```{r libraries, include=FALSE}
+library(knitr)
+```
+
+
+R Markdown cheat sheet <https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>.
+
+
+
+## Analysis of Iris Petal and Sepal Size
+
+In this report, we will assess the correlation between **petal** and **sepal** size for different species of iris.
+It will produce the following: 
+
+* Summary statistics for each variable in the iris dataset
+* Correlations
+    + Between sepal length and petal length 
+    + Between sepal width and petal width
+* Plot of sepal length vs. petal length 
+
+***
+
+### Summary Statistics
+
+#### Without kable function
+```{r summary}
+data(iris)
+summary(iris)
+```
+
+#### With kable function
+```{r summary_kable}
+data(iris)
+kable(summary(iris))
+```
+
+There are `r nrow(iris)` flowers in the dataset.
+
+***
+
+### Correlation between sepal and petal size
+
+```{r correlations, echo=TRUE}
+lcorr <- cor(iris$Sepal.Length, iris$Petal.Length)
+lcorr
+wcorr <- cor(iris$Sepal.Width, iris$Petal.Width)
+wcorr
+```
+
+The correlation between sepal length and petal length is `r round(lcorr, 2)`  
+The correlation between sepal width and petal width is `r round(wcorr, 2)`
+
+***
+
+### Plot of petal length vs. sepal length
+
+```{r length_plot, echo=TRUE, fig.height=5, fig.path='Figures/', fig.width=7}
+plot(iris$Sepal.Length, iris$Petal.Length,
+     xlab = "Sepal Length", ylab = "Petal Length")
+```
+
